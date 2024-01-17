@@ -7,7 +7,7 @@
 
 #ifndef Game_hpp
 #define Game_hpp
-
+#include "Ship.hpp"
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #endif /* Game_hpp */
@@ -20,5 +20,7 @@ public:
 
 private:
     SDL_Window* mWindow;
-    
+    Ship ship;
+    SDL_Renderer* mRenderer;
+    SDL_Texture* image_texture;
 };
