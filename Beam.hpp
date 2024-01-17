@@ -13,7 +13,7 @@
 #endif /* Beam_hpp */
 class Beam {
 public:
-    Beam();
+    Beam(int x, int y, int size);
     int x;
     int y;
     int size;
