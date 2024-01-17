@@ -8,8 +8,10 @@
 #ifndef Game_hpp
 #define Game_hpp
 #include "Ship.hpp"
+#include "Beam.hpp"
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include <list>
 #endif /* Game_hpp */
 class Game {
 public:
@@ -23,4 +25,5 @@ private:
     Ship ship;
     SDL_Renderer* mRenderer;
     SDL_Texture* image_texture;
+    std::list<Beam> beams;
 };

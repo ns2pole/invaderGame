@@ -13,8 +13,10 @@
 #endif /* Beam_hpp */
 class Beam {
 public:
-    Beam(int x, int y, int size);
+    Beam(int x, int y);
     int x;
     int y;
-    int size;
+    int width;
+    int length;
+    int velocity;
 };

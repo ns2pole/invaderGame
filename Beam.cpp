@@ -7,7 +7,7 @@
 
 #include "Beam.hpp"
 
-Beam::Beam(int xx, int yy, int ssize)
-:x(xx),y(yy),size(ssize)
+Beam::Beam(int xx, int yy)
+:x(xx),y(yy),width(10),length(35),velocity(5)
 {
 }
