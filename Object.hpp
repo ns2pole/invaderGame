@@ -15,8 +15,8 @@
 class Object {
 public:
     Object();
-    int x;
-    int y;
+    float x;
+    float y;
     int size;
     SDL_Surface* image;
 };

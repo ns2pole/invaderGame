@@ -16,32 +16,34 @@ bool Game::Initialize() {
 };
 
 void Game::Loop() {
+    float deltaTime = (SDL_GetTicks() - mTicksCount) / 1000.0f;
+    if (deltaTime > 0.05f)
+    {
+        deltaTime = 0.05f;
+    }
+    const Uint8* state = SDL_GetKeyboardState(NULL);
     bool running = true;
     SDL_Event e;
     while(running) {
         while (SDL_PollEvent(&e)) {
-            if (e.type == SDL_QUIT) {
-                running = false;
-            }
-            else if (e.type == SDL_KEYDOWN){
-                if (e.key.keysym.sym ==  SDLK_RIGHT) {
-                    ship.x += 5;
-                } else if (e.key.keysym.sym == SDLK_LEFT) {
-                    ship.x -= 5;
-                } else if(e.key.keysym.sym == SDLK_SPACE) {
-                    beams.push_back(Beam(ship.x, ship.y - 10));
-                    Mix_PlayChannel(-1, beamAudio, 0);
-                }
+            if(state[SDL_SCANCODE_SPACE]) {
+                beams.push_back(Beam(ship.x, ship.y - 10));
+                Mix_PlayChannel(-1, beamAudio, 0);
             }
         }
-        SDL_Rect shipRect = { ship.x, ship.y, ship.size, ship.size };
+        if (state[SDL_SCANCODE_RIGHT]) {
+            ship.x += ship.speed * deltaTime;
+        } else if (state[SDL_SCANCODE_LEFT]) {
+            ship.x -=  ship.speed * deltaTime;
+        }
+        SDL_Rect shipRect = { static_cast<int>(ship.x), static_cast<int>(ship.y)
+            , ship.size, ship.size };
         SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
         SDL_RenderClear(mRenderer);
-        
         SDL_SetRenderDrawColor(mRenderer, 140, 240, 200, 255); // パドルの色を設定
         for (Beam &beam : beams) {
             beam.y -= beam.velocity;
-            SDL_Rect paddle{beam.x, beam.y, beam.width, beam.length};
+            SDL_Rect paddle{static_cast<int>(beam.x), static_cast<int>(beam.y), beam.width, beam.length};
             SDL_RenderFillRect(mRenderer, &paddle);
         }
         SDL_RenderCopy(mRenderer, image_texture, NULL, &shipRect);
@@ -49,6 +51,7 @@ void Game::Loop() {
     }
     // テクスチャの解放
     SDL_DestroyTexture(image_texture);
+    mTicksCount = SDL_GetTicks();
 }
 
 void Game::ShutDown() {

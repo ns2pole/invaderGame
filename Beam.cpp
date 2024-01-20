@@ -11,5 +11,5 @@ Beam::Beam(int xx, int yy) {
     y = yy;
     width = 10;
     length = 35;
-    velocity = 5;
+    velocity = 15;
 }

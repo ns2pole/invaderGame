@@ -24,6 +24,7 @@ public:
 
 private:
     SDL_Window* mWindow;
+    Uint32 mTicksCount;
     Ship ship;
     SDL_Renderer* mRenderer;
     SDL_Texture* image_texture;
