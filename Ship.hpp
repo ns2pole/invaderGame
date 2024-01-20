@@ -9,13 +9,13 @@
 #define Ship_hpp
 
 #include <stdio.h>
+#include "SDL2/SDL_image.h"
+#include "Object.hpp"
 
 #endif /* Ship_hpp */
 
-class Ship {
+class Ship : public Object {
 public:
-    Ship(int ssize);
-    int x;
-    int y;
-    int size;
+    Ship();
+//    SDL_Surface* image;
 };

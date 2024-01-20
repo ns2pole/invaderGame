@@ -6,7 +6,13 @@
 //
 
 #include "Ship.hpp"
+#include "SDL2/SDL_image.h"
 
-Ship::Ship(int ssize)
-:x(400),y(600),size(ssize)
-{}
+
+Ship::Ship()
+{
+    x = 400;
+    y = 600;
+    size = 30;
+    image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/ship.png");
+}

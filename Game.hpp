@@ -11,6 +11,8 @@
 #include "Beam.hpp"
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include "SDL2/SDL_mixer.h"
+
 #include <list>
 #endif /* Game_hpp */
 class Game {
@@ -25,5 +27,6 @@ private:
     Ship ship;
     SDL_Renderer* mRenderer;
     SDL_Texture* image_texture;
+    Mix_Chunk* beamAudio;
     std::list<Beam> beams;
 };

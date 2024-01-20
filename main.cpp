@@ -13,8 +13,6 @@ int main(int argc, const char * argv[]) {
     Game game;
     game.Initialize();
     game.Loop();
-    
-        
-    
+    game.ShutDown();
     return 0;
 }

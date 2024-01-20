@@ -8,15 +8,14 @@
 #ifndef Beam_hpp
 #define Beam_hpp
 
-#include <stdio.h>
+    #include <stdio.h>
+    #include "Object.hpp"
 
-#endif /* Beam_hpp */
-class Beam {
+class Beam : public Object {
 public:
     Beam(int x, int y);
-    int x;
-    int y;
     int width;
     int length;
     int velocity;
 };
+#endif /* Beam_hpp */

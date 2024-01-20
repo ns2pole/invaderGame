@@ -6,8 +6,10 @@
 //
 
 #include "Beam.hpp"
-
-Beam::Beam(int xx, int yy)
-:x(xx),y(yy),width(10),length(35),velocity(5)
-{
+Beam::Beam(int xx, int yy) {
+    x = xx;
+    y = yy;
+    width = 10;
+    length = 35;
+    velocity = 5;
 }
