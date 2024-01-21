@@ -13,5 +13,9 @@ Beam::Beam(int xx, int yy) {
     y = yy;
     width = 10;
     length = 35;
-    velocity = 15;
+    velocity = 300;
+}
+
+void Beam::Update(float deltaTime){
+    y -= velocity * deltaTime;
 }

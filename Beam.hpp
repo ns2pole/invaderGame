@@ -12,10 +12,13 @@
     #include "Object.hpp"
 
 class Beam : public Object {
-public:
-    Beam(int x, int y);
-    int width;
-    int length;
-    int velocity;
+    public:
+        Beam(int x, int y);
+        int width;
+        int length;
+        int velocity;
+        void Update(float deltaTime);
 };
+
+    
 #endif /* Beam_hpp */

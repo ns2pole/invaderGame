@@ -18,6 +18,8 @@ class Ship : public Object {
 public:
     Ship();
     float speed;
-    void Update(float deltaTime);
+    void UpdateToRight(float deltaTime);
+    void UpdateToLeft(float deltaTime);
+    
 //    SDL_Surface* image;
 };

@@ -9,6 +9,7 @@
 #define Game_hpp
 #include "Ship.hpp"
 #include "Beam.hpp"
+#include "BackGround.hpp"
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "SDL2/SDL_mixer.h"
@@ -23,13 +24,16 @@ public:
     void ProcessInput();
     void Draw();
     void RunLoop();
+    float GetDeltaTime();
 
 private:
     SDL_Window* mWindow;
     Uint32 mTicksCount;
     Ship ship;
+    SDL_Texture* ship_texture;
+    BackGround bg;
+    SDL_Texture* bg_texture;
     SDL_Renderer* mRenderer;
-    SDL_Texture* image_texture;
     Mix_Chunk* beamAudio;
     std::list<Beam> beams;
     bool mIsRunning;

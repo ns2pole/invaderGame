@@ -13,13 +13,16 @@ Ship::Ship()
 {
     x = 400;
     y = 600;
-    speed = 100;
+    speed = 400;
     size = 30;
     image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/ship.png");
 }
 
 
-void Ship::Update(float deltaTime) {
-   
+void Ship::UpdateToRight(float deltaTime) {
+    x += speed * deltaTime;
 }
 
+void Ship::UpdateToLeft(float deltaTime) {
+    x -= speed * deltaTime;
+}
