@@ -12,7 +12,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     Game game;
     game.Initialize();
-    game.Loop();
+    game.RunLoop();
     game.ShutDown();
     return 0;
 }

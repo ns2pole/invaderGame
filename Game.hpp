@@ -17,10 +17,12 @@
 #endif /* Game_hpp */
 class Game {
 public:
-    Game();
     bool Initialize();
-    void Loop();
+    void Update();
     void ShutDown();
+    void ProcessInput();
+    void Draw();
+    void RunLoop();
 
 private:
     SDL_Window* mWindow;
@@ -30,4 +32,5 @@ private:
     SDL_Texture* image_texture;
     Mix_Chunk* beamAudio;
     std::list<Beam> beams;
+    bool mIsRunning;
 };

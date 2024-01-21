@@ -6,6 +6,8 @@
 //
 
 #include "Beam.hpp"
+#include "Ship.hpp"
+
 Beam::Beam(int xx, int yy) {
     x = xx;
     y = yy;

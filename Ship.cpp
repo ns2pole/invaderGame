@@ -18,7 +18,8 @@ Ship::Ship()
     image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/ship.png");
 }
 
+
 void Ship::Update(float deltaTime) {
-    x = speed * deltaTime;
+   
 }
 
