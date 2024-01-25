@@ -19,9 +19,10 @@ public:
     float y;
     int width;
     int height;
+    float scale;
     SDL_Surface* image;
     SDL_Texture* texture;
-
+    SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
 };
 
 #endif /* Object_hpp */

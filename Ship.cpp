@@ -13,10 +13,9 @@
 Ship::Ship()
 {
     x = 400;
-    y = 600;
+    y = 670;
     speed = 400;
-    width = 30;
-    height = 30;
+    scale = 0.1;
     image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/ship.png");
     dc = new DrawComponent(this);
 }
@@ -30,6 +29,3 @@ void Ship::UpdateToLeft(float deltaTime) {
     x -= speed * deltaTime;
 }
 
-SDL_Texture* Ship::generateTexture(SDL_Renderer* mRenderer) {
-    return SDL_CreateTextureFromSurface(mRenderer, image);
-}

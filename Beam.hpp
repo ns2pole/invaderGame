@@ -18,8 +18,6 @@ public:
     int velocity;
     void Update(float deltaTime);
     DrawComponent* dc;
-    SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
-
 };
 
     

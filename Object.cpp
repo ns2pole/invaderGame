@@ -6,4 +6,10 @@
 //
 
 #include "Object.hpp"
-Object::Object(){}
+#include "DrawComponent.hpp"
+
+Object::Object(){
+}
+SDL_Texture* Object::generateTexture(SDL_Renderer* mRenderer) {
+    return SDL_CreateTextureFromSurface(mRenderer, image);
+}

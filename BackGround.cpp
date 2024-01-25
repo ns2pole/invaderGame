@@ -6,6 +6,8 @@
 //
 
 #include "BackGround.hpp"
-SDL_Texture* BackGround::generateTexture(SDL_Renderer* mRenderer) {
-    return SDL_CreateTextureFromSurface(mRenderer, image);
+BackGround::BackGround() {
+    image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/backGround.png");
+    dc = new DrawComponent(this);
+    scale = 1;
 }

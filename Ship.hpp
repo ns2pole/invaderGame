@@ -21,7 +21,5 @@ public:
     float speed;
     void UpdateToRight(float deltaTime);
     void UpdateToLeft(float deltaTime);
-    SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
     DrawComponent* dc;
-//    SDL_Surface* image;
 };

@@ -33,6 +33,6 @@ private:
     BackGround background;
     SDL_Renderer* mRenderer;
     Mix_Chunk* beamAudio;
-    std::list<Beam> beams;
+    std::list<Beam*> beams;
     bool mIsRunning;
 };
