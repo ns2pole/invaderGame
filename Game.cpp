@@ -5,7 +5,7 @@ bool Game::Initialize() {
     mWindow = SDL_CreateWindow("InvaderGame", 100, 100, 1024, 768, 0);
     mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     ship.texture = ship.generateTexture(mRenderer);
-    bg.texture = bg.generateTexture(mRenderer);
+    background.texture = background.generateTexture(mRenderer);
     Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096 );
     beamAudio = Mix_LoadWAV("/Users/nakamura/Program/C++/invader/invader/beam.wav");
     Mix_Volume(-1, MIX_MAX_VOLUME / 3);
@@ -27,6 +27,8 @@ void Game::Update() {
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
         if(state[SDL_SCANCODE_SPACE]) {
+            Beam* beam = new Beam(ship.x, ship.y - 10);
+            beam->texture = beam->generateTexture(mRenderer);
             beams.push_back(Beam(ship.x, ship.y - 10));
             Mix_PlayChannel(-1, beamAudio, 0);
         }
@@ -62,16 +64,19 @@ void Game::Draw() {
     SDL_RenderClear(mRenderer);
     SDL_SetRenderDrawColor(mRenderer, 140, 240, 200, 255); // パドルの色を設定
     for (Beam &beam : beams) {
-        SDL_Rect paddle{static_cast<int>(beam.x), static_cast<int>(beam.y), beam.width, beam.length};
+//        beam.dc->Draw(mRenderer);
+        SDL_Rect paddle{static_cast<int>(beam.x), static_cast<int>(beam.y), beam.width, beam.height};
         SDL_RenderFillRect(mRenderer, &paddle);
     }
-//    SDL_Rect bgRect = { static_cast<int>(ship.x + 100),static_cast<int>(ship.y)
-    SDL_Rect shipRect = { static_cast<int>(ship.x), static_cast<int>(ship.y)
-        , ship.size, ship.size };
-//        , ship.size * 4, ship.size * 4};
-    SDL_RenderCopy(mRenderer, ship.texture, NULL, &shipRect);
+    ship.dc->Draw(mRenderer);
+//    background.dc = new DrawComponent(background);
+//    background.dc.draw(mRenderer);
+    
+
+//    SDL_Rect bgRect = { static_cast<int>(ship.x + 100),static_cast<int>(ship.y), 300, 300};
 //
-//    SDL_RenderCopy(mRenderer, bg_texture, nullptr, &bgRect);
+//    SDL_RenderCopy(mRenderer, background.texture, nullptr, &bgRect);
+
     SDL_RenderPresent(mRenderer);
 }
 

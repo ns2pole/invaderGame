@@ -17,8 +17,11 @@ public:
     Object();
     float x;
     float y;
-    int size;
+    int width;
+    int height;
     SDL_Surface* image;
+    SDL_Texture* texture;
+
 };
 
 #endif /* Object_hpp */

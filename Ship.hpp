@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "SDL2/SDL_image.h"
 #include "Object.hpp"
+#include "DrawComponent.hpp"
 
 #endif /* Ship_hpp */
 
@@ -20,8 +21,7 @@ public:
     float speed;
     void UpdateToRight(float deltaTime);
     void UpdateToLeft(float deltaTime);
-    SDL_Texture* texture;
     SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
-
+    DrawComponent* dc;
 //    SDL_Surface* image;
 };

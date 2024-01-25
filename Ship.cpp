@@ -7,6 +7,7 @@
 
 #include "Ship.hpp"
 #include "SDL2/SDL_image.h"
+#include "DrawComponent.hpp"
 
 
 Ship::Ship()
@@ -14,9 +15,10 @@ Ship::Ship()
     x = 400;
     y = 600;
     speed = 400;
-    size = 30;
+    width = 30;
+    height = 30;
     image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/ship.png");
-    
+    dc = new DrawComponent(this);
 }
 
 

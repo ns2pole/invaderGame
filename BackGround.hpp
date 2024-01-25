@@ -10,11 +10,13 @@
 
 #include <stdio.h>
 #include "SDL2/SDL_image.h"
+#include "DrawComponent.hpp"
 
 class BackGround {
 public:
     SDL_Surface* image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/backGround.png");
     SDL_Texture* texture;
     SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
+    DrawComponent* dc;
 };
 #endif /* BackGround_hpp */
