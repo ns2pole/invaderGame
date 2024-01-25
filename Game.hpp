@@ -30,9 +30,7 @@ private:
     SDL_Window* mWindow;
     Uint32 mTicksCount;
     Ship ship;
-    SDL_Texture* ship_texture;
     BackGround bg;
-    SDL_Texture* bg_texture;
     SDL_Renderer* mRenderer;
     Mix_Chunk* beamAudio;
     std::list<Beam> beams;

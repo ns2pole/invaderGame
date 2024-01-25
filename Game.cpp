@@ -4,9 +4,9 @@
 bool Game::Initialize() {
     mWindow = SDL_CreateWindow("InvaderGame", 100, 100, 1024, 768, 0);
     mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    ship_texture = SDL_CreateTextureFromSurface(mRenderer, ship.image);
-    bg_texture = SDL_CreateTextureFromSurface(mRenderer, bg.image);
-    Mix_OpenAudio( 22050, AUDIO_S16SYS, 2, 4096 );
+    ship.texture = ship.generateTexture(mRenderer);
+    bg.texture = bg.generateTexture(mRenderer);
+    Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096 );
     beamAudio = Mix_LoadWAV("/Users/nakamura/Program/C++/invader/invader/beam.wav");
     Mix_Volume(-1, MIX_MAX_VOLUME / 3);
     return true;
@@ -17,8 +17,7 @@ void Game::RunLoop() {
         Game::ProcessInput();
         Game::Update();
         Game::Draw();
-    }
-    
+    } 
 }
 
 
@@ -66,11 +65,11 @@ void Game::Draw() {
         SDL_Rect paddle{static_cast<int>(beam.x), static_cast<int>(beam.y), beam.width, beam.length};
         SDL_RenderFillRect(mRenderer, &paddle);
     }
+//    SDL_Rect bgRect = { static_cast<int>(ship.x + 100),static_cast<int>(ship.y)
     SDL_Rect shipRect = { static_cast<int>(ship.x), static_cast<int>(ship.y)
         , ship.size, ship.size };
-//    SDL_Rect bgRect = { static_cast<int>(ship.x + 100),static_cast<int>(ship.y)
 //        , ship.size * 4, ship.size * 4};
-    SDL_RenderCopy(mRenderer, ship_texture, NULL, &shipRect);
+    SDL_RenderCopy(mRenderer, ship.texture, NULL, &shipRect);
 //
 //    SDL_RenderCopy(mRenderer, bg_texture, nullptr, &bgRect);
     SDL_RenderPresent(mRenderer);

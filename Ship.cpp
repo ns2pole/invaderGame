@@ -16,6 +16,7 @@ Ship::Ship()
     speed = 400;
     size = 30;
     image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/ship.png");
+    
 }
 
 
@@ -25,4 +26,8 @@ void Ship::UpdateToRight(float deltaTime) {
 
 void Ship::UpdateToLeft(float deltaTime) {
     x -= speed * deltaTime;
+}
+
+SDL_Texture* Ship::generateTexture(SDL_Renderer* mRenderer) {
+    return SDL_CreateTextureFromSurface(mRenderer, image);
 }

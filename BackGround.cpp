@@ -6,3 +6,6 @@
 //
 
 #include "BackGround.hpp"
+SDL_Texture* BackGround::generateTexture(SDL_Renderer* mRenderer) {
+    return SDL_CreateTextureFromSurface(mRenderer, image);
+}

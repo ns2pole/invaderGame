@@ -20,6 +20,8 @@ public:
     float speed;
     void UpdateToRight(float deltaTime);
     void UpdateToLeft(float deltaTime);
-    
+    SDL_Texture* texture;
+    SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
+
 //    SDL_Surface* image;
 };
