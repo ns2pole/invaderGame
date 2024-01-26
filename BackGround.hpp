@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include "SDL2/SDL_image.h"
-#include "DrawComponent.hpp"
+#include "component/DrawComponent.hpp"
 #include "Object.hpp"
 class BackGround : public Object {
 public:

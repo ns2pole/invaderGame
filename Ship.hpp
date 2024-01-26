@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include "SDL2/SDL_image.h"
 #include "Object.hpp"
-#include "DrawComponent.hpp"
+#include "component/DrawComponent.hpp"
 
 #endif /* Ship_hpp */
 

@@ -10,7 +10,7 @@ bool Game::Initialize() {
     ship.texture = ship.generateTexture(mRenderer);
     background.texture = background.generateTexture(mRenderer);
     Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096 );
-    beamAudio = Mix_LoadWAV("/Users/nakamura/Program/C++/invader/invader/beam.wav");
+    beamAudio = Mix_LoadWAV("/Users/nakamura/Program/C++/invader/invader/audio/beam.wav");
     Mix_Volume(-1, MIX_MAX_VOLUME / 3);
     return true;
 };

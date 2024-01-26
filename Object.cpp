@@ -6,7 +6,7 @@
 //
 
 #include "Object.hpp"
-#include "DrawComponent.hpp"
+#include "component/DrawComponent.hpp"
 
 Object::Object(){
 }
