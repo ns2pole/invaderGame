@@ -14,7 +14,9 @@
 class DrawComponent {
     public:
         Object* owner;
-        DrawComponent(Object* o);
+        SDL_Surface* image;
+        SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
+        DrawComponent(Object* owner);
         void Draw(SDL_Renderer* renderer);
 };
 #endif /* DrawComponent_hpp */

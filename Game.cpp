@@ -6,9 +6,6 @@ bool Game::Initialize() {
     mWindow = SDL_CreateWindow("InvaderGame", 100, 100, 1024, 768, 0);
     //描画エンジンの初期化
     mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    //船の画像生成//textureとは画像のこと
-    ship.texture = ship.generateTexture(mRenderer);
-    background.texture = background.generateTexture(mRenderer);
     Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096 );
     beamAudio = Mix_LoadWAV("/Users/nakamura/Program/C++/invader/invader/audio/beam.wav");
     Mix_Volume(-1, MIX_MAX_VOLUME / 3);
@@ -31,7 +28,6 @@ void Game::Update() {
     while (SDL_PollEvent(&e)) {
         if(state[SDL_SCANCODE_SPACE]) {
             Beam* beam = new Beam(ship.x, ship.y - 10);
-            beam->texture = beam->generateTexture(mRenderer);
             beams.push_back(beam);
             Mix_PlayChannel(-1, beamAudio, 0);
         }

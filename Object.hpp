@@ -9,6 +9,7 @@
 #define Object_hpp
 
 #include <stdio.h>
+
 #include "SDL2/SDL_image.h"
 #include "Object.hpp"
 
@@ -20,9 +21,7 @@ public:
     int width;
     int height;
     float scale;
-    SDL_Surface* image;
-    SDL_Texture* texture;
-    SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
+    const char* imageURL;
 };
 
 #endif /* Object_hpp */

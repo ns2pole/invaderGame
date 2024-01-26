@@ -15,7 +15,7 @@ Beam::Beam(int xx, int yy) {
     height = 35;
     velocity = 300;
     scale = 0.05;
-    image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/image/beam.png");
+    imageURL = "/Users/nakamura/Program/C++/invader/invader/image/beam.png";
     dc = new DrawComponent(this);
 }
 

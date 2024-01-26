@@ -1,0 +1,63 @@
+@startuml
+
+class Game {
+    public:
+    bool Initialize();
+    void Update();
+    void ShutDown();
+    void ProcessInput();
+    void Draw();
+    void RunLoop();
+    float GetDeltaTime();
+
+    private:
+        SDL_Window* mWindow;
+        Uint32 mTicksCount;
+        Ship ship;
+        BackGround background;
+        SDL_Renderer* mRenderer;
+        Mix_Chunk* beamAudio;
+        std::list<Beam*> beams;
+        bool mIsRunning;
+}
+class Object {
+    Object();
+    float x;
+    float y;
+    int width;
+    int height;
+    float scale;
+    const char* imageURL;
+}
+class Ship extends Object {
+    Ship();
+    float speed;
+    void UpdateToRight(float deltaTime);
+    void UpdateToLeft(float deltaTime);
+    DrawComponent* dc;
+}
+class BackGround extends Object {
+    BackGround();
+    DrawComponent* dc;
+}
+class Beam extends Object {
+    Beam(int x, int y);
+    int velocity;
+    void Update(float deltaTime);
+    DrawComponent* dc;
+    AudioComponent* oc;
+}
+
+class DrawComponent {
+    public:
+        Object* owner;
+        SDL_Surface* image;
+        SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
+        DrawComponent(Object* o);
+        void Draw(SDL_Renderer* renderer);
+}
+
+class AudioComponent {
+}
+
+@enduml

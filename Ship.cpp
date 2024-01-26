@@ -16,7 +16,7 @@ Ship::Ship()
     y = 670;
     speed = 400;
     scale = 0.1;
-    image = IMG_Load("/Users/nakamura/Program/C++/invader/invader/image/ship.png");
+    imageURL = "/Users/nakamura/Program/C++/invader/invader/image/ship.png";
     dc = new DrawComponent(this);
 }
 
