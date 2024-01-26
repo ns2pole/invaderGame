@@ -21,7 +21,6 @@ public:
     int width;
     int height;
     float scale;
-    const char* imageURL;
 };
 
 #endif /* Object_hpp */

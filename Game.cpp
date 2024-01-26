@@ -7,7 +7,6 @@ bool Game::Initialize() {
     //描画エンジンの初期化
     mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096 );
-    beamAudio = Mix_LoadWAV("/Users/nakamura/Program/C++/invader/invader/audio/beam.wav");
     Mix_Volume(-1, MIX_MAX_VOLUME / 3);
     return true;
 };
@@ -29,7 +28,7 @@ void Game::Update() {
         if(state[SDL_SCANCODE_SPACE]) {
             Beam* beam = new Beam(ship.x, ship.y - 10);
             beams.push_back(beam);
-            Mix_PlayChannel(-1, beamAudio, 0);
+            beam->ac->Sound();
         }
     }
     if (state[SDL_SCANCODE_RIGHT]) {
@@ -60,7 +59,6 @@ void Game::ProcessInput() {
 }
 
 void Game::Draw() {
-    
     SDL_SetRenderDrawColor(mRenderer, 255, 255, 255, 255);
     //全画面塗りつぶし
     SDL_RenderClear(mRenderer);

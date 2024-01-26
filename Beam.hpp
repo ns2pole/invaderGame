@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "Object.hpp"
 #include "component/DrawComponent.hpp"
+#include "component/AudioComponent.hpp"
 
 class Beam : public Object {
 public:
@@ -18,7 +19,7 @@ public:
     int velocity;
     void Update(float deltaTime);
     DrawComponent* dc;
-//    AudioComponent* oc;
+    AudioComponent* ac;
 };
 
     

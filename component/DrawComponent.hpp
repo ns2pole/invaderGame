@@ -11,12 +11,13 @@
 #include <stdio.h>
 #include "SDL2/SDL_image.h"
 #include "Object.hpp"
-class DrawComponent {
+#include "Component.hpp"
+
+class DrawComponent : public Component {
     public:
-        Object* owner;
         SDL_Surface* image;
         SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
-        DrawComponent(Object* owner);
+        DrawComponent(Object* owner, const char* imageURL);
         void Draw(SDL_Renderer* renderer);
 };
 #endif /* DrawComponent_hpp */

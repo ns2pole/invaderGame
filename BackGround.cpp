@@ -7,7 +7,6 @@
 
 #include "BackGround.hpp"
 BackGround::BackGround() {
-    imageURL = "/Users/nakamura/Program/C++/invader/invader/image/backGround.png";
-    dc = new DrawComponent(this);
+    dc = new DrawComponent(this, "/Users/nakamura/Program/C++/invader/invader/image/backGround.png");
     scale = 1;
 }

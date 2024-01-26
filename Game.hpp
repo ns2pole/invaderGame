@@ -10,6 +10,7 @@
 #include "Ship.hpp"
 #include "Beam.hpp"
 #include "BackGround.hpp"
+#include "AudioComponent.hpp"
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "SDL2/SDL_mixer.h"
@@ -28,11 +29,11 @@ public:
 
 private:
     SDL_Window* mWindow;
+    SDL_Renderer* mRenderer;
     Uint32 mTicksCount;
     Ship ship;
     BackGround background;
-    SDL_Renderer* mRenderer;
-    Mix_Chunk* beamAudio;
     std::list<Beam*> beams;
     bool mIsRunning;
+    
 };

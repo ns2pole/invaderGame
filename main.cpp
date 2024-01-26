@@ -9,7 +9,6 @@
 #include "./Game.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
     Game game;
     game.Initialize();
     game.RunLoop();

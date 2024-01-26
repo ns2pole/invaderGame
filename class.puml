@@ -27,7 +27,6 @@ class Object {
     int width;
     int height;
     float scale;
-    const char* imageURL;
 }
 class Ship extends Object {
     Ship();
@@ -48,16 +47,23 @@ class Beam extends Object {
     AudioComponent* oc;
 }
 
-class DrawComponent {
+class Component {
     public:
-        Object* owner;
+        Object* owner;    
+    Component(Object* o);
+}
+
+class DrawComponent extends Component{
+    public:
         SDL_Surface* image;
         SDL_Texture* generateTexture(SDL_Renderer* mRenderer);
-        DrawComponent(Object* o);
+        DrawComponent(Object* o, char* imageURL);
         void Draw(SDL_Renderer* renderer);
 }
 
-class AudioComponent {
+class AudioComponent extends Component{
+    AudioComponent(Object* o, audioURL);
+    void sound()
 }
 
 @enduml
